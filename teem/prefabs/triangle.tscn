@@ -1,0 +1,4 @@
+[gd_scene format=2]
+
+[node name="triangle" type="Polygon2D" groups=["danger"]]
+polygon = PoolVector2Array( 64, 32, 0, -64, -64, 32 )

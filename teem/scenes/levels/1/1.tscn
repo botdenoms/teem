@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://prefabs/rectangle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/levels/Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://scenes/levels/team.gd" type="Script" id=4]
+[ext_resource path="res://scenes/levels/Particles2D.gd" type="Script" id=5]
+[ext_resource path="res://scenes/levels/1/1.gd" type="Script" id=6]
+
+[sub_resource type="ParticlesMaterial" id=1]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+spread = 180.0
+flatness = 0.28
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 5.0
+radial_accel = 48.0
+damping = 7.99
+scale = 10.0
+
+[node name="1" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="block1" type="Node2D" parent="."]
+
+[node name="rectangle" parent="block1" instance=ExtResource( 2 )]
+position = Vector2( 0, -48 )
+
+[node name="rectangle2" parent="block1" instance=ExtResource( 2 )]
+position = Vector2( 128, -344 )
+
+[node name="rectangle3" parent="block1" instance=ExtResource( 2 )]
+position = Vector2( 0, -672 )
+
+[node name="rectangle4" parent="block1" instance=ExtResource( 2 )]
+position = Vector2( -120, -352 )
+
+[node name="team" type="Node2D" parent="."]
+position = Vector2( 0, 300 )
+script = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -300 )
+current = true
+zoom = Vector2( 2, 2 )
+smoothing_enabled = true
+smoothing_speed = 10.0
+script = ExtResource( 3 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+amount = 500
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+randomness = 1.0
+process_material = SubResource( 1 )
+script = ExtResource( 5 )
