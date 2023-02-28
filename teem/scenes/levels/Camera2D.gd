@@ -3,7 +3,7 @@ extends Camera2D
 func _process(_delta):
 	# get number of team menbers
 	var team = get_parent().get_node("team").get_child_count()
-	if get_parent().get_node("team").get_child_count() == 0:
+	if team == 0:
 		return
 	# mid child if odd & mid 2 avg if even
 	if team % 2 == 1:
@@ -15,4 +15,3 @@ func _process(_delta):
 		var x = (mid1.x + mid2.x) / 2
 		position.y = mid1.y
 		position.x = x
-

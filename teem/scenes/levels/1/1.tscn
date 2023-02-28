@@ -52,7 +52,6 @@ script = ExtResource( 3 )
 [node name="Particles2D" type="Particles2D" parent="."]
 emitting = false
 amount = 500
-lifetime = 2.0
 one_shot = true
 speed_scale = 2.0
 randomness = 1.0
